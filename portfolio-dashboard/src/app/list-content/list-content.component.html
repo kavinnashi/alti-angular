@@ -1,0 +1,16 @@
+<!-- investment-list.component.html -->
+<div *ngIf="investmentDetailsList.length > 0; else noData">
+    <h3>Investment Details List</h3>
+    <ul>
+      <li *ngFor="let details of investmentDetailsList">
+        Asset Type: {{ details.assetType }},
+        Quantity: {{ details.quantity }},
+        Purchase Price: {{ details.purchasePrice | currency }},
+        Purchase Date: {{ details.purchaseDate | date }}
+      </li>
+    </ul>
+  </div>
+  <ng-template #noData>
+    <p>No investment details available.</p>
+  </ng-template>
+  
