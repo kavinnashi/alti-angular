@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef, viewChild } from '@angular/core';
 import { ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -21,7 +21,9 @@ import { CommonModule } from '@angular/common';
   styleUrl: './form-content.component.scss'
 })
 export class FormContentComponent implements OnInit {
+ 
   investmentForm: FormGroup;
+
   constructor(private investmentDataService: InvestmentDataService){
     this.investmentForm = new FormGroup({
       assetType: new FormControl('',Validators.required),
@@ -66,6 +68,11 @@ onSubmit() {
       purchasePrice: '',
       purchaseDate: ''
     });
+    import("../chart-content/chart-content.component").then((module)=>{
+      const component = module['ChartContentComponent'];
+    //  this.container.createComponent(component);
+    })
+    window.alert('Form Data Saved Successfully!')
   } else {
     // If the form is not valid, mark all controls as touched so that validation errors will be shown
     this.markAllAsTouched(this.investmentForm);

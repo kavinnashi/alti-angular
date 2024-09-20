@@ -1,15 +1,16 @@
-<!-- main-tabs.component.html -->
 <mat-tab-group (selectedTabChange)="tabChanged($event)">
-    <mat-tab label="Form Tab">
-      <app-form-content></app-form-content>
+    <mat-tab label="Form Tab" routerLink="/form" routerLinkActive="active-tab">
+      <ng-container *ngIf="router.url === '/form'">
+        <router-outlet></router-outlet>
+      </ng-container>
     </mat-tab>
+  
     <mat-tab label="Chart Tab">
-      <app-chart-content [pieChartLabels]="pieChartLabels" [pieChartDatasets]="pieChartDatasets" *ngIf="showChart"></app-chart-content>
+      <app-chart-content [pieChartLabels]="pieChartLabels" [pieChartDatasets]="pieChartDatasets"
+        *ngIf="showChart"></app-chart-content>
     </mat-tab>
-    <mat-tab label="List Tab">
-     
+  
+    <mat-tab label="List Tab" routerLink="/list" routerLinkActive="active-tab">
+      <app-list-content></app-list-content>
     </mat-tab>
   </mat-tab-group>
-
-  <app-list-content></app-list-content>
-  

@@ -7,10 +7,12 @@ import { MatTabChangeEvent } from '@angular/material/tabs';
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { AssetTypeTotals, InvestmentDataService, InvestmentDetails } from '../investment-data.service';
+import { Router, RouterOutlet } from '@angular/router';
+
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [CommonModule,MatTabsModule, FormContentComponent, ChartContentComponent, ListContentComponent],
+  imports: [RouterOutlet,CommonModule,MatTabsModule, FormContentComponent, ChartContentComponent, ListContentComponent],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss'
 })
@@ -21,7 +23,7 @@ export class HomePageComponent implements OnInit {
   investmentDetailsList: InvestmentDetails[] = [];
    pieChartLabels:any=[];
    pieChartDatasets:any=[];
-  constructor(private investmentDataService: InvestmentDataService){}
+  constructor(private investmentDataService: InvestmentDataService,readonly router: Router){}
   ngOnInit(): void {
     this.subscription = this.investmentDataService.investmentDetails$.subscribe(
       list => {
@@ -31,8 +33,7 @@ export class HomePageComponent implements OnInit {
           return acc;
         }, {} as AssetTypeTotals);
          this.pieChartLabels =Object.keys(assetTypeTotals);
-         this.pieChartDatasets = 
-         Object.values(assetTypeTotals)
+         this.pieChartDatasets = Object.values(assetTypeTotals)
          ;
       });
   }
