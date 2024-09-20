@@ -48,4 +48,7 @@ export class HomePageComponent implements OnInit {
   onTabActivated() {
     
   }
+  ngOnDestroy() {
+    this.subscription && this.subscription.unsubscribe();
+  }
 }
