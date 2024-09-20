@@ -6,6 +6,9 @@ export interface InvestmentDetails {
   purchasePrice: number;
   purchaseDate: Date | string;
 }
+export interface AssetTypeTotals {
+  [key: string]: number;
+}
 @Injectable({
   providedIn: 'root'
 })
