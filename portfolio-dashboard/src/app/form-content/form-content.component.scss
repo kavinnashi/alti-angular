@@ -1,0 +1,36 @@
+/* Form container styling */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+
+  .error-message {
+    color: #d32f2f;
+    margin: 5px 0 15px;
+    font-size: 0.85rem;
+  }
+  
+  button.mat-raised-button {
+    margin-top: 20px;
+    width: 100%;
+  }
+  
+  .mat-select {
+    padding: 8px;
+  }
+  
+ 
+  .mat-datepicker-toggle {
+    margin-top: -6px;
+  }
+  
+
+  
