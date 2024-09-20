@@ -14,7 +14,7 @@ import { Chart, registerables } from 'chart.js';
 })
 
 export class ChartContentComponent implements OnInit {
-  @Input() pieChartDatasets!: any[];
+  @Input() pieChartDatasets!: [];
   @Input() pieChartLabels!: any[];
   chart: any = [];
   public pieChartOptions: ChartOptions<'pie'> = {
