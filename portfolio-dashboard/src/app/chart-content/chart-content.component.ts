@@ -4,11 +4,10 @@ import { ChartConfiguration, ChartOptions, ChartType } from "chart.js";
 import { InvestmentDataService, InvestmentDetails , AssetTypeTotals} from '../investment-data.service';
 import { Subscription,async, of, switchMap } from 'rxjs';
 import { Chart, registerables } from 'chart.js';
-import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-chart-content',
   standalone: true,
-  imports: [CommonModule,BaseChartDirective],
+  imports: [BaseChartDirective],
   templateUrl: './chart-content.component.html',
   styleUrl: './chart-content.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -37,7 +36,7 @@ ngOnInit(): void {
           data: this.pieChartDatasets,
           borderColor: '#3e95cd',
           fill: false,
-          label: 'Investment Details',
+          label: 'Investment Details (Quantity)',
           backgroundColor: 'rgba(93, 175, 89, 0.1)',
           borderWidth: 3,
         },
